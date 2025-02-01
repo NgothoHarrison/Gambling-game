@@ -21,10 +21,18 @@ def get_slot_machine_spin(rows, cols, symbols):
         for i in range (symbol_count):
             all_symbols.append(symbol)
 
-    columns = [[], [], []] 
-    for col in range(cols):
-        for row in range(rows):
-            columns[col].append(all_symbols[rand.randint(0, len(all_symbols) - 1)])
+    columns = [] 
+    for _ in range(cols):
+        column = []
+        current_symbols = all_symbols[:]
+        for _ in range(rows):
+            value = rand.choice(current_symbols)
+            current_symbols.remove(value)
+
+            column.append(value)
+
+        columns.append(column)
+
 
 def deposit():
     while True:
