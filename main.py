@@ -15,6 +15,13 @@ symbol_count = {
     "D": 5,
 }
 
+symbol_value = {
+    "A": 6,
+    "B": 4,
+    "C": 3,
+    "D": 2,
+}
+
 def get_slot_machine_spin(rows, cols, symbols):
     all_symbols = []
     for symbol, symbol_count in symbols.items():
@@ -34,6 +41,23 @@ def get_slot_machine_spin(rows, cols, symbols):
         columns.append(column)
 
     return columns
+
+def check_winnings(columns, lines, bet, values):
+    for line in range(lines):
+
+        winnings = 0
+
+        symbol = columns[0][line]
+        for column in columns:
+            symbol_to_check = column[line]
+            if symbol != symbol_to_check:
+                symbol = None
+                break
+            else:
+                winnings += values[symbol] * bet
+
+        return winnings
+
 
 def print_slot_machine(columns):
     for row in range(len(columns[0])):
@@ -102,6 +126,9 @@ def main():
             break
 
     print(f"You are betting ${bet} on {lines} lines. Total bet is : $ {total_bet}")
-    print(balance, lines, bet)
+    
+    slots = get_slot_machine_spin(ROWS, COLS, symbol_count)
+    print_slot_machine(slots)
+
 
 main()
