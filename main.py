@@ -1,7 +1,12 @@
+import random as rand
+
+
 MAX_LINES = 3
 MAX_BET = 1000
 MIN_BET = 1
 
+ROWS = 3
+COLS = 3
 
 def deposit():
     while True:
