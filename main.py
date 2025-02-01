@@ -8,6 +8,24 @@ MIN_BET = 1
 ROWS = 3
 COLS = 3
 
+symbol_count = {
+    "A": 2,
+    "B": 3,
+    "C": 4,
+    "D": 5,
+}
+
+def get_slot_machine_spin(rows, cols, symbols):
+    all_symbols = []
+    for symbol, symbol_count in symbols.items():
+        for i in range (symbol_count):
+            all_symbols.append(symbol)
+
+    columns = [[], [], []] 
+    for col in range(cols):
+        for row in range(rows):
+            columns[col].append(all_symbols[rand.randint(0, len(all_symbols) - 1)])
+
 def deposit():
     while True:
         my_amount = input("How much deposit do you want : $ ")
