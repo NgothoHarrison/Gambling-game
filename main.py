@@ -1,5 +1,4 @@
-import random as rand
-
+import random as rand 
 
 MAX_LINES = 3
 MAX_BET = 1000
