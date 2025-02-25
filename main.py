@@ -1,4 +1,4 @@
-import random as rand 
+import random as rand #to generate the instances 
 
 MAX_LINES = 3
 MAX_BET = 1000
